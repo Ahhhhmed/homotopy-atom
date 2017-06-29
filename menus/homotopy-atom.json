@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle homotopy-atom",
+        "command": "homotopy-atom:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "homotopy-atom",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "homotopy-atom:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
