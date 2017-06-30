@@ -6,9 +6,9 @@
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "homotopy-atom:toggle"
+    "atom-workspace": "homotopy-atom:expand"
   },
-  "repository": "https://github.com/atom/homotopy-atom",
+  "repository": "https://github.com/Ahhhhmed/homotopy-atom",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

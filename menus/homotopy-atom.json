@@ -2,8 +2,8 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Toggle homotopy-atom",
-        "command": "homotopy-atom:toggle"
+        "label": "Expand homotopy-atom",
+        "command": "homotopy-atom:expand"
       }
     ]
   },
@@ -15,8 +15,8 @@
           "label": "homotopy-atom",
           "submenu": [
             {
-              "label": "Toggle",
-              "command": "homotopy-atom:toggle"
+              "label": "Expand",
+              "command": "homotopy-atom:expand"
             }
           ]
         }
