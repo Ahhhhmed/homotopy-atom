@@ -1,6 +1,14 @@
 language: generic
 dist: trusty
-sudo: false
+addons:
+  apt:
+    packages:
+      - "python3"
+      - "python3-pip"
+sudo: true
+
+install:
+  sudo pip3 install --pre homotopy
 
 script:
   - curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh
