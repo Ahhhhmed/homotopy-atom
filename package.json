@@ -1,10 +1,9 @@
 {
   "name": "homotopy",
   "main": "./lib/homotopy",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Snippet compiler",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "homotopy:expand"
   },
@@ -14,23 +13,22 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "configSchema": {
-		"Homotopy path": {
-			"type": "string",
-			"default": "homotopy",
-			"description": "If `homotopy` is not in your PATH, specify where the executable is",
-			"order": 1
-		},
+    "Homotopy path": {
+      "type": "string",
+      "default": "homotopy",
+      "description": "If `homotopy` is not in your PATH, specify where the executable is",
+      "order": 1
+    },
     "User lib path": {
-			"type": "array",
-			"default": [],
-			"description": "Path to user library folders. Comma separated",
-      "items":{
+      "type": "array",
+      "default": [],
+      "description": "Path to user library folders. Comma separated",
+      "items": {
         "type": "string"
       },
-			"order": 2
-		}
+      "order": 2
+    }
   }
 }
