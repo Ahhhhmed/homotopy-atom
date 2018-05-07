@@ -1,5 +1,5 @@
 {
-  "atom-workspace": {
-    "shift-enter": "homotopy:expand"
+  "atom-text-editor:not([mini])": {
+    "tab": "homotopy:expand"
   }
 }
