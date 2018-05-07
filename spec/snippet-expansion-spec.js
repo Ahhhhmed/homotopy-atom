@@ -7,6 +7,8 @@ describe('SnippetExpansion', () => {
   let instance, editor, execFile
 
   beforeEach(() => {
+    atom.packages.activatePackage('homotopy');
+
     editor = jasmine.createSpyObj('editor', [
       'getSoftTabs',
       'getTabLength',
@@ -35,6 +37,9 @@ describe('SnippetExpansion', () => {
     expect(instance.prepareArguments('c++', 'if$true')).toEqual(['-t', 4, '-c', 'c++', 'if$true'])
     expect(editor.getSoftTabs).toHaveBeenCalledWith()
     expect(editor.getTabLength).toHaveBeenCalledWith()
+
+    atom.config.set('homotopy.User lib path', ["folder1", "folder2"])
+    expect(instance.prepareArguments('c++', 'if$true')).toEqual(['-p', 'folder1::folder2', '-t', 4, '-c', 'c++', 'if$true'])
   });
 
   it('should expand snippets', ()=>{
@@ -85,6 +90,21 @@ describe('SnippetExpansion', () => {
     expect(editor.getGrammar).toHaveBeenCalled()
 
   });
+
+  it('should pass custom path', ()=>{
+    let cursorPositionSpy = jasmine.createSpyObj('getCursorBufferPosition', ['copy'])
+    cursorPositionSpy.copy.andReturn(jasmine.createSpyObj('fakeCopy', ['column']))
+    editor.getCursorBufferPosition.andReturn(cursorPositionSpy)
+    editor.getGrammar.andReturn(jasmine.createSpyObj('fakeGrammar', ['name']))
+
+    atom.config.set('homotopy.Homotopy path', 'customPath')
+
+    execFile.andCallFake((path)=>{
+      expect(path).toEqual('customPath')
+    })
+
+    instance.expand()
+  })
 
   it('should do nothing when multiple cursors', ()=>{
     editor.hasMultipleCursors.andReturn(true)

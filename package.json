@@ -1,12 +1,12 @@
 {
-  "name": "homotopy-atom",
-  "main": "./lib/homotopy-atom",
+  "name": "homotopy",
+  "main": "./lib/homotopy",
   "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "homotopy-atom:expand"
+    "atom-workspace": "homotopy:expand"
   },
   "repository": "https://github.com/Ahhhhmed/homotopy-atom",
   "license": "MIT",
@@ -14,5 +14,22 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+  },
+  "configSchema": {
+		"Homotopy path": {
+			"type": "string",
+			"default": "homotopy",
+			"description": "If `homotopy` is not in your PATH, specify where the executable is",
+			"order": 1
+		},
+    "User lib path": {
+			"type": "array",
+			"default": [],
+			"description": "Path to user library folders. Comma separated",
+      "items":{
+        "type": "string"
+      },
+			"order": 2
+		}
   }
 }
