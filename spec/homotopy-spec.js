@@ -2,7 +2,7 @@
 
 
 
-import HomotopyAtom from '../lib/homotopy-atom';
+import HomotopyAtom from '../lib/homotopy';
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -18,7 +18,7 @@ describe('HomotopyAtom', () => {
     })
 
     workspaceElement = atom.views.getView(atom.workspace);
-    activationPromise = atom.packages.activatePackage('homotopy-atom');
+    activationPromise = atom.packages.activatePackage('homotopy');
 
     runs(()=>{
       editor = atom.workspace.getActiveTextEditor()
@@ -36,7 +36,7 @@ describe('HomotopyAtom', () => {
       expect(editor.getText()).toEqual('enum A { a, b, c,  };')
       expect(editor.getCursorBufferPosition()).toEqual({'row': 0, 'column': 18})
     })
-    atom.commands.dispatch(workspaceElement, 'homotopy-atom:expand')
+    atom.commands.dispatch(workspaceElement, 'homotopy:expand')
     waitsFor(()=>{
       return changeHandler.callCount > 0
     })

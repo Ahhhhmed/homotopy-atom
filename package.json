@@ -1,12 +1,12 @@
 {
-  "name": "homotopy-atom",
-  "main": "./lib/homotopy-atom",
+  "name": "homotopy",
+  "main": "./lib/homotopy",
   "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [
   ],
   "activationCommands": {
-    "atom-workspace": "homotopy-atom:expand"
+    "atom-workspace": "homotopy:expand"
   },
   "repository": "https://github.com/Ahhhhmed/homotopy-atom",
   "license": "MIT",
