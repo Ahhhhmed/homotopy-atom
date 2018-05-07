@@ -46,12 +46,17 @@ describe('SnippetExpansion', () => {
     editor.getGrammar.andReturn(jasmine.createSpyObj('fakeGrammar', ['name']))
 
     execFile.andCallFake((path, args, callback)=>{
+      let addErrorSpy = spyOn(atom.notifications, 'addError')
+      let addWarningSpy = spyOn(atom.notifications, 'addWarning')
+
       expect(path).toEqual('homotopy')
       callback('', 'snippet_text')
 
       expect(editor.transact).not.toHaveBeenCalled()
       expect(editor.setTextInBufferRange).toHaveBeenCalledWith(expectedRange, 'snippet_text' + '\n')
       expect(editor.setCursorBufferPosition).not.toHaveBeenCalled()
+      expect(addErrorSpy).not.toHaveBeenCalled()
+      expect(addWarningSpy).not.toHaveBeenCalled()
 
       callback('', 'before[{cursor_marker}]after')
 
@@ -59,6 +64,15 @@ describe('SnippetExpansion', () => {
       expect(editor.setTextInBufferRange).toHaveBeenCalledWith(expectedRange, 'before')
       expect(editor.setTextInBufferRange).toHaveBeenCalledWith([cursorPositionSpy, cursorPositionSpy], 'after')
       expect(editor.setCursorBufferPosition).toHaveBeenCalledWith(cursorPositionSpy)
+      expect(addErrorSpy).not.toHaveBeenCalled()
+      expect(addWarningSpy).not.toHaveBeenCalled()
+
+      callback(new Error("error message"), "junk")
+      expect(addErrorSpy).toHaveBeenCalledWith("Error calling homotopy engine. Homotopy path: 'homotopy'. error message")
+      expect(addWarningSpy).not.toHaveBeenCalled()
+
+      callback(undefined, "junk", "warning message")
+      expect(addWarningSpy).toHaveBeenCalledWith("One or more waring messages from homotopy engine: warning message")
     })
 
     instance.expand()
