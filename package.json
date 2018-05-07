@@ -2,13 +2,14 @@
   "name": "homotopy",
   "main": "./lib/homotopy",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Snippet compiler",
   "keywords": [
   ],
   "activationCommands": {
     "atom-workspace": "homotopy:expand"
   },
   "repository": "https://github.com/Ahhhhmed/homotopy-atom",
+  "homepage": "https://github.com/Ahhhhmed/homotopy-atom",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
