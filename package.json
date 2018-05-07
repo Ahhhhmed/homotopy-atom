@@ -1,7 +1,7 @@
 {
   "name": "homotopy",
   "main": "./lib/homotopy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Snippet compiler",
   "keywords": [],
   "activationCommands": {
