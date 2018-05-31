@@ -15,7 +15,7 @@
           "label": "Homotopy",
           "submenu": [
             {
-              "label": "Expand snippet under cursor",
+              "label": "Expand snippet",
               "command": "homotopy:expand"
             }
           ]
