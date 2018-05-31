@@ -20,8 +20,17 @@ In that case, Homotopy engine still needs to be installed separately.
 pip install homotopy #you might need to use pip3 instead
 ```
 
+## Key bindings
 
-## Core
+```
+expand snippet: Ctrl-E
+```
+
+Homotopy does not use `tab` key to expand snippets to avoid collision with other
+Atom functionalities like default snippet package and default tab behavior.
+
+
+## Useful links
 
 * [Getting started](http://homotopy.readthedocs.io/en/latest/getting_started.html)
 * [Homotopy engine repo](https://github.com/Ahhhhmed/homotopy)
