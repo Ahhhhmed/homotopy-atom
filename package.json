@@ -1,11 +1,14 @@
 {
   "name": "homotopy",
   "main": "./lib/homotopy",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Snippet compiler",
   "keywords": [],
   "activationCommands": {
-    "atom-workspace": ["homotopy:expand", "homotopy:expand-into"]
+    "atom-workspace": [
+      "homotopy:expand",
+      "homotopy:expand-into"
+    ]
   },
   "repository": "https://github.com/Ahhhhmed/homotopy-atom",
   "homepage": "https://github.com/Ahhhhmed/homotopy-atom",
