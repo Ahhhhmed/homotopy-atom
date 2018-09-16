@@ -5,7 +5,7 @@
   "description": "Snippet compiler",
   "keywords": [],
   "activationCommands": {
-    "atom-workspace": "homotopy:expand"
+    "atom-workspace": ["homotopy:expand", "homotopy:expand-into"]
   },
   "repository": "https://github.com/Ahhhhmed/homotopy-atom",
   "homepage": "https://github.com/Ahhhhmed/homotopy-atom",

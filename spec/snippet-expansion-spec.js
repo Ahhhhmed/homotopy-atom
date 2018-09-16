@@ -28,18 +28,18 @@ describe('SnippetExpansion', () => {
   });
 
   it('should make args', ()=>{
-    expect(instance.prepareArguments('c++', 'if$true')).toEqual(['-c', 'c++', 'if$true'])
+    expect(instance.prepareArguments('c++', 'if$true', true)).toEqual(['-c', 'c++', 'if$true'])
     expect(editor.getSoftTabs).toHaveBeenCalledWith()
     expect(editor.getTabLength).not.toHaveBeenCalled()
 
     editor.getSoftTabs.andReturn(true)
     editor.getTabLength.andReturn(4)
-    expect(instance.prepareArguments('c++', 'if$true')).toEqual(['-t', 4, '-c', 'c++', 'if$true'])
+    expect(instance.prepareArguments('c++', 'if$true')).toEqual(['-t', 4, 'c++', 'if$true'])
     expect(editor.getSoftTabs).toHaveBeenCalledWith()
     expect(editor.getTabLength).toHaveBeenCalledWith()
 
     atom.config.set('homotopy.User lib path', ["folder1", "folder2"])
-    expect(instance.prepareArguments('c++', 'if$true')).toEqual(['-p', 'folder1::folder2', '-t', 4, '-c', 'c++', 'if$true'])
+    expect(instance.prepareArguments('c++', 'if$true', true)).toEqual(['-p', 'folder1::folder2', '-t', 4, '-c', 'c++', 'if$true'])
   });
 
   it('should expand snippets', ()=>{

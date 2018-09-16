@@ -1,5 +1,6 @@
 {
   "atom-text-editor:not([mini])": {
-    "ctrl-e": "homotopy:expand"
+    "ctrl-e": "homotopy:expand-into",
+    "ctrl-shift-e": "homotopy:expand"
   }
 }

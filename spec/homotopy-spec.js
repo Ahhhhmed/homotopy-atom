@@ -25,7 +25,7 @@ describe('HomotopyAtom', () => {
     })
   });
 
-  it('should expand a snippet', ()=>{
+  it('should expand into a snippet', ()=>{
     editor.setText("enum1!A>a&b&c")
     atom.workspace.getActiveTextEditor().getGrammar().name = 'c++'
     editor.moveToEndOfWord()
@@ -35,6 +35,23 @@ describe('HomotopyAtom', () => {
     editor.onDidChange(()=>{
       expect(editor.getText()).toEqual('enum A { a, b, c,  };')
       expect(editor.getCursorBufferPosition()).toEqual({'row': 0, 'column': 18})
+    })
+    atom.commands.dispatch(workspaceElement, 'homotopy:expand-into')
+    waitsFor(()=>{
+      return changeHandler.callCount > 0
+    })
+  });
+
+  it('should expand a snippet', ()=>{
+    editor.setText("enum1!A>a&b&c")
+    atom.workspace.getActiveTextEditor().getGrammar().name = 'c++'
+    editor.moveToEndOfWord()
+    let changeHandler = jasmine.createSpy('changeHandler')
+    editor.onDidChange(changeHandler)
+
+    editor.onDidChange(()=>{
+      expect(editor.getText()).toEqual('enum A { a, b, c };\n')
+      expect(editor.getCursorBufferPosition()).toEqual({'row': 1, 'column': 0})
     })
     atom.commands.dispatch(workspaceElement, 'homotopy:expand')
     waitsFor(()=>{

@@ -17,6 +17,10 @@
             {
               "label": "Expand snippet",
               "command": "homotopy:expand"
+            },
+            {
+              "label": "Expand into snippet",
+              "command": "homotopy:expand-into"
             }
           ]
         }
